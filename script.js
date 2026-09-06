@@ -315,7 +315,7 @@ const EMAILJS_TEMPLATE_ID = 'template_duy30dl';
 
       statusEl.classList.add('is-error');
       const errorMessage = String(error?.message || error?.text || '');
-      statusEl.textContent = errorMessage.toLowerCase().includes('public key')
+      statusEl.textContent = errorMessage.toLowerCase().includes('UDITlXmef-lDUx903')
         ? 'Add your EmailJS public key in script.js before sending.'
         : `Email could not be sent: ${errorMessage || 'check your EmailJS service and template IDs.'}`;
     }
