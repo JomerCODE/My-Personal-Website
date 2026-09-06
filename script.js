@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
 });
 
-const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
+const EMAILJS_PUBLIC_KEY = 'UDITlXmef-lDUx903';
 const EMAILJS_SERVICE_ID = 'service_zv9lavf';
 const EMAILJS_TEMPLATE_ID = 'template_duy30dl';
 
@@ -283,18 +283,11 @@ function initContactForm() {
         throw new Error('EmailJS public key is not configured.');
       }
 
-      emailjs.init({
-  publicKey: EMAILJS_PUBLIC_KEY
-});
-
-    await emailjs.sendForm(
-     EMAILJS_SERVICE_ID,
-      EMAILJS_TEMPLATE_ID,
-    form
-);
-const EMAILJS_PUBLIC_KEY = 'UDITlXmef-lDUx903';
-const EMAILJS_SERVICE_ID = 'service_zv9lavf';
-const EMAILJS_TEMPLATE_ID = 'template_duy30dl';
+      await emailjs.sendForm(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        form
+      );
 
       // Success
       statusEl.classList.remove('is-error');
@@ -315,8 +308,8 @@ const EMAILJS_TEMPLATE_ID = 'template_duy30dl';
 
       statusEl.classList.add('is-error');
       const errorMessage = String(error?.message || error?.text || '');
-      statusEl.textContent = errorMessage.toLowerCase().includes('UDITlXmef-lDUx903')
-        ? 'Add your EmailJS public key in script.js before sending.'
+      statusEl.textContent = errorMessage.toLowerCase().includes('public key')
+        ? 'EmailJS public key is invalid. Check the key in script.js.'
         : `Email could not be sent: ${errorMessage || 'check your EmailJS service and template IDs.'}`;
     }
   });
