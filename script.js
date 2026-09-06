@@ -167,9 +167,11 @@ function initContactForm() {
 
   if (!form || !statusEl) return;
 
-  const emailJsReady = typeof emailjs !== 'undefined' && EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY';
+  const emailJsConfigured =
+    typeof emailjs !== 'undefined' &&
+    EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY';
 
-  if (emailJsReady) {
+  if (emailJsConfigured) {
     emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
   }
 
@@ -277,7 +279,7 @@ function initContactForm() {
     statusEl.textContent = 'Sending message...';
 
     try {
-      if (!emailJsReady) {
+      if (!emailJsConfigured) {
         throw new Error('EmailJS public key is not configured.');
       }
 
@@ -305,10 +307,10 @@ function initContactForm() {
       console.error('EmailJS Error:', error);
 
       statusEl.classList.add('is-error');
-      statusEl.textContent =
-        error.message === 'EmailJS public key is not configured.'
-          ? 'Email service is not configured yet. Please email me directly at jomerabansa5@gmail.com.'
-          : 'Sorry, something went wrong while sending your message. Please try again later.';
+      const errorMessage = String(error?.message || error?.text || '');
+      statusEl.textContent = errorMessage.toLowerCase().includes('public key')
+        ? 'Add your EmailJS public key in script.js before sending.'
+        : `Email could not be sent: ${errorMessage || 'check your EmailJS service and template IDs.'}`;
     }
   });
 }
