@@ -8,17 +8,33 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
 });
 
+/* ---------------------------------- */
+/* EmailJS Configuration               */
+/* ---------------------------------- */
+
 const EMAILJS_PUBLIC_KEY = 'UDITlXmef-lDUx903';
 const EMAILJS_SERVICE_ID = 'service_zv9lavf';
 const EMAILJS_TEMPLATE_ID = 'template_duy30dl';
 
+/* ---------------------------------- */
+/* Footer Year                         */
+/* ---------------------------------- */
+
 function initFooterYear() {
   const yearEl = document.getElementById('year');
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
 }
+
+/* ---------------------------------- */
+/* Navbar Scroll State                 */
+/* ---------------------------------- */
 
 function initNavbarScrollState() {
   const navbar = document.getElementById('navbar');
+
   if (!navbar) return;
 
   const updateState = () => {
@@ -26,15 +42,20 @@ function initNavbarScrollState() {
   };
 
   updateState();
-  window.addEventListener('scroll', updateState, { passive: true });
+
+  window.addEventListener('scroll', updateState, {
+    passive: true
+  });
 }
 
 /* ---------------------------------- */
-/* Mobile hamburger menu               */
+/* Mobile Hamburger Menu               */
 /* ---------------------------------- */
+
 function initMobileMenu() {
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobile-menu');
+
   if (!hamburger || !mobileMenu) return;
 
   const closeMenu = () => {
@@ -50,24 +71,29 @@ function initMobileMenu() {
   };
 
   hamburger.addEventListener('click', () => {
-    const isOpen = hamburger.getAttribute('aria-expanded') === 'true';
+    const isOpen =
+      hamburger.getAttribute('aria-expanded') === 'true';
+
     isOpen ? closeMenu() : openMenu();
   });
 
-  // Close the mobile menu whenever a link inside it is clicked
+  // Close mobile menu when a link is clicked
   mobileMenu.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', closeMenu);
   });
 
-  // Close on Escape key
+  // Close mobile menu with Escape
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeMenu();
+    if (e.key === 'Escape') {
+      closeMenu();
+    }
   });
 }
 
 /* ---------------------------------- */
-/* Highlight active section in nav     */
+/* Highlight Active Navigation         */
 /* ---------------------------------- */
+
 function initActiveNavHighlight() {
   const sections = document.querySelectorAll('main section[id]');
   const navLinks = document.querySelectorAll('[data-nav]');
@@ -76,7 +102,9 @@ function initActiveNavHighlight() {
 
   const setActiveLink = (id) => {
     navLinks.forEach((link) => {
-      const isMatch = link.getAttribute('href') === `#${id}`;
+      const isMatch =
+        link.getAttribute('href') === `#${id}`;
+
       link.classList.toggle('active', isMatch);
     });
   };
@@ -89,24 +117,36 @@ function initActiveNavHighlight() {
         }
       });
     },
-    { rootMargin: '-45% 0px -50% 0px', threshold: 0 }
+    {
+      rootMargin: '-45% 0px -50% 0px',
+      threshold: 0
+    }
   );
 
-  sections.forEach((section) => observer.observe(section));
+  sections.forEach((section) => {
+    observer.observe(section);
+  });
 }
 
 /* ---------------------------------- */
-/* Scroll reveal animations            */
+/* Scroll Reveal Animations            */
 /* ---------------------------------- */
+
 function initScrollReveal() {
   const revealEls = document.querySelectorAll('.reveal');
+
   if (!revealEls.length) return;
 
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const prefersReducedMotion =
+    window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    ).matches;
 
   if (prefersReducedMotion) {
-    // Show everything immediately, skip the animated reveal
-    revealEls.forEach((el) => el.classList.add('is-visible'));
+    revealEls.forEach((el) => {
+      el.classList.add('is-visible');
+    });
+
     return;
   }
 
@@ -119,36 +159,61 @@ function initScrollReveal() {
         }
       });
     },
-    { threshold: 0.12, rootMargin: '0px 0px -60px 0px' }
+    {
+      threshold: 0.12,
+      rootMargin: '0px 0px -60px 0px'
+    }
   );
 
-  revealEls.forEach((el) => observer.observe(el));
+  revealEls.forEach((el) => {
+    observer.observe(el);
+  });
 }
 
 /* ---------------------------------- */
-/* Project filtering                   */
+/* Project Filtering                   */
 /* ---------------------------------- */
-function initProjectFilters() {
-  const filterButtons = document.querySelectorAll('.filter-btn');
-  const projectCards = document.querySelectorAll('.project-card');
-  const emptyState = document.getElementById('projects-empty');
 
-  if (!filterButtons.length || !projectCards.length) return;
+function initProjectFilters() {
+  const filterButtons =
+    document.querySelectorAll('.filter-btn');
+
+  const projectCards =
+    document.querySelectorAll('.project-card');
+
+  const emptyState =
+    document.getElementById('projects-empty');
+
+  if (!filterButtons.length || !projectCards.length) {
+    return;
+  }
 
   filterButtons.forEach((button) => {
     button.addEventListener('click', () => {
       const filter = button.dataset.filter;
 
-      // Update active button state
-      filterButtons.forEach((btn) => btn.classList.remove('active'));
+      // Update active button
+      filterButtons.forEach((btn) => {
+        btn.classList.remove('active');
+      });
+
       button.classList.add('active');
 
       let visibleCount = 0;
 
       projectCards.forEach((card) => {
-        const matches = filter === 'all' || card.dataset.category === filter;
-        card.classList.toggle('is-hidden', !matches);
-        if (matches) visibleCount += 1;
+        const matches =
+          filter === 'all' ||
+          card.dataset.category === filter;
+
+        card.classList.toggle(
+          'is-hidden',
+          !matches
+        );
+
+        if (matches) {
+          visibleCount += 1;
+        }
       });
 
       if (emptyState) {
@@ -159,56 +224,81 @@ function initProjectFilters() {
 }
 
 /* ---------------------------------- */
-/* Contact form + EmailJS              */
+/* Contact Form + EmailJS              */
 /* ---------------------------------- */
+
 function initContactForm() {
-  const form = document.getElementById('contact-form');
-  const statusEl = document.getElementById('form-status');
+  const form =
+    document.getElementById('contact-form');
+
+  const statusEl =
+    document.getElementById('form-status');
 
   if (!form || !statusEl) return;
 
-  const emailJsLoaded = typeof window.emailjs !== 'undefined';
-  const emailJsConfigured =
-    emailJsLoaded &&
-    Boolean(EMAILJS_PUBLIC_KEY) &&
-    EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY';
+  /*
+   * Check if EmailJS library is available.
+   */
+  if (typeof window.emailjs === 'undefined') {
+    console.error(
+      'EmailJS library is not loaded.'
+    );
 
-  if (emailJsConfigured) {
-    window.emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+    statusEl.textContent =
+      'Email service is currently unavailable.';
+
+    statusEl.classList.add('is-error');
+
+    return;
   }
+
+  /*
+   * Initialize EmailJS using the Public Key.
+   */
+  window.emailjs.init({
+    publicKey: EMAILJS_PUBLIC_KEY
+  });
 
   const fields = {
     name: {
       el: form.querySelector('#name'),
-      message: 'Please enter your name (at least 2 characters).'
+      message:
+        'Please enter your name (at least 2 characters).'
     },
 
     email: {
       el: form.querySelector('#email'),
-      message: 'Please enter a valid email address.'
+      message:
+        'Please enter a valid email address.'
     },
 
     subject: {
       el: form.querySelector('#subject'),
-      message: 'Please enter a subject (at least 3 characters).'
+      message:
+        'Please enter a subject (at least 3 characters).'
     },
 
     message: {
       el: form.querySelector('#message'),
-      message: 'Please enter a message (at least 10 characters).'
+      message:
+        'Please enter a message (at least 10 characters).'
     }
   };
 
   /* ---------------------------------- */
-  /* Show / hide field errors            */
+  /* Show / Hide Field Errors            */
   /* ---------------------------------- */
+
   const setFieldError = (key, errorMessage) => {
     const { el } = fields[key];
 
     if (!el) return;
 
-    const wrapper = el.closest('.form-field');
-    const errorEl = wrapper?.querySelector('.form-error');
+    const wrapper =
+      el.closest('.form-field');
+
+    const errorEl =
+      wrapper?.querySelector('.form-error');
 
     if (!wrapper || !errorEl) return;
 
@@ -222,8 +312,9 @@ function initContactForm() {
   };
 
   /* ---------------------------------- */
-  /* Validate individual field          */
+  /* Validate Individual Field          */
   /* ---------------------------------- */
+
   const validateField = (key) => {
     const { el, message } = fields[key];
 
@@ -231,14 +322,18 @@ function initContactForm() {
 
     const isValid = el.checkValidity();
 
-    setFieldError(key, isValid ? '' : message);
+    setFieldError(
+      key,
+      isValid ? '' : message
+    );
 
     return isValid;
   };
 
   /* ---------------------------------- */
-  /* Live validation                     */
+  /* Live Validation                    */
   /* ---------------------------------- */
+
   Object.keys(fields).forEach((key) => {
     const { el } = fields[key];
 
@@ -249,74 +344,115 @@ function initContactForm() {
     });
 
     el.addEventListener('input', () => {
-      const wrapper = el.closest('.form-field');
+      const wrapper =
+        el.closest('.form-field');
 
-      if (wrapper?.classList.contains('has-error')) {
+      if (
+        wrapper?.classList.contains('has-error')
+      ) {
         validateField(key);
       }
     });
   });
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+  /* ---------------------------------- */
+  /* Submit Contact Form                */
+  /* ---------------------------------- */
 
-    // Validate all fields
-    const results = Object.keys(fields).map((key) => {
-      return validateField(key);
-    });
+  form.addEventListener(
+    'submit',
+    async (e) => {
+      e.preventDefault();
 
-    const allValid = results.every(Boolean);
+      /* Validate all fields */
+      const results =
+        Object.keys(fields).map((key) => {
+          return validateField(key);
+        });
 
-    if (!allValid) {
-      statusEl.textContent =
-        'Please fix the highlighted fields before sending.';
+      const allValid =
+        results.every(Boolean);
 
-      statusEl.classList.add('is-error');
+      if (!allValid) {
+        statusEl.textContent =
+          'Please fix the highlighted fields before sending.';
 
-      return;
-    }
+        statusEl.classList.add('is-error');
 
-    // Show sending status
-    statusEl.classList.remove('is-error');
-    statusEl.textContent = 'Sending message...';
-
-    try {
-      if (!emailJsConfigured) {
-        if (!emailJsLoaded) {
-          throw new Error('EmailJS library did not load. Check your internet connection or CDN access.');
-        }
-
-        throw new Error('EmailJS public key is not configured.');
+        return;
       }
 
-      await window.emailjs.sendForm(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        form
-      );
-
-      // Success
+      /* Show sending status */
       statusEl.classList.remove('is-error');
       statusEl.textContent =
-        'Message sent successfully! Thank you for contacting me.';
+        'Sending message...';
 
-      // Clear form
-      form.reset();
+      try {
+        /*
+         * Send form through EmailJS.
+         *
+         * IMPORTANT:
+         * sendForm() uses:
+         * SERVICE ID
+         * TEMPLATE ID
+         * FORM
+         *
+         * The Public Key is already configured
+         * above using emailjs.init().
+         */
 
-      // Clear validation styles
-      Object.keys(fields).forEach((key) => {
-        setFieldError(key, '');
-      });
+        await window.emailjs.sendForm(
+          EMAILJS_SERVICE_ID,
+          EMAILJS_TEMPLATE_ID,
+          form
+        );
 
-    } catch (error) {
-      // Show error in browser console
-      console.error('EmailJS Error:', error);
+        /* Success */
+        statusEl.classList.remove(
+          'is-error'
+        );
 
-      statusEl.classList.add('is-error');
-      const errorMessage = String(error?.message || error?.text || '');
-      statusEl.textContent = errorMessage.toLowerCase().includes('public key')
-        ? 'EmailJS public key is invalid. Check the key in script.js.'
-        : `Email could not be sent: ${errorMessage || 'check your EmailJS service and template IDs.'}`;
+        statusEl.textContent =
+          'Message sent successfully! Thank you for contacting me.';
+
+        /* Clear form */
+        form.reset();
+
+        /* Clear validation styles */
+        Object.keys(fields).forEach((key) => {
+          setFieldError(key, '');
+        });
+
+      } catch (error) {
+        /*
+         * Show actual EmailJS error
+         * in browser console.
+         */
+        console.error(
+          'EmailJS Error:',
+          error
+        );
+
+        statusEl.classList.add(
+          'is-error'
+        );
+
+        const errorMessage = String(
+          error?.message ||
+          error?.text ||
+          ''
+        );
+
+        /*
+         * Show a useful error message
+         * instead of the old generic one.
+         */
+        statusEl.textContent =
+          `Email could not be sent: ${
+            errorMessage ||
+            'Please check your EmailJS service and template settings.'
+          }`;
+      }
     }
-  });
+  );
 }
