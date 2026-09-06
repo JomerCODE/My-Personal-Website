@@ -283,11 +283,18 @@ function initContactForm() {
         throw new Error('EmailJS public key is not configured.');
       }
 
-      await emailjs.sendForm(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        form
-      );
+      emailjs.init({
+  publicKey: EMAILJS_PUBLIC_KEY
+});
+
+    await emailjs.sendForm(
+     EMAILJS_SERVICE_ID,
+      EMAILJS_TEMPLATE_ID,
+    form
+);
+const EMAILJS_PUBLIC_KEY = 'UDITlXmef-lDUx903';
+const EMAILJS_SERVICE_ID = 'service_zv9lavf';
+const EMAILJS_TEMPLATE_ID = 'template_duy30dl';
 
       // Success
       statusEl.classList.remove('is-error');
