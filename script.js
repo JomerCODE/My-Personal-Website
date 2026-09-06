@@ -167,12 +167,14 @@ function initContactForm() {
 
   if (!form || !statusEl) return;
 
+  const emailJsLoaded = typeof window.emailjs !== 'undefined';
   const emailJsConfigured =
-    typeof emailjs !== 'undefined' &&
+    emailJsLoaded &&
+    Boolean(EMAILJS_PUBLIC_KEY) &&
     EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY';
 
   if (emailJsConfigured) {
-    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+    window.emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
   }
 
   const fields = {
@@ -280,10 +282,14 @@ function initContactForm() {
 
     try {
       if (!emailJsConfigured) {
+        if (!emailJsLoaded) {
+          throw new Error('EmailJS library did not load. Check your internet connection or CDN access.');
+        }
+
         throw new Error('EmailJS public key is not configured.');
       }
 
-      await emailjs.sendForm(
+      await window.emailjs.sendForm(
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
         form
