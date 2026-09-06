@@ -1,9 +1,3 @@
-/* ==========================================================================
-   JOMER ABANSA — PORTFOLIO SCRIPT
-   Modular vanilla JS: navigation, scroll reveal, project filtering,
-   and contact form validation. No external JS libraries.
-   ========================================================================== */
-
 document.addEventListener('DOMContentLoaded', () => {
   initFooterYear();
   initNavbarScrollState();
@@ -14,17 +8,15 @@ document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
 });
 
-/* ---------------------------------- */
-/* Footer year                        */
-/* ---------------------------------- */
+const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
+const EMAILJS_SERVICE_ID = 'service_zv9lavf';
+const EMAILJS_TEMPLATE_ID = 'template_duy30dl';
+
 function initFooterYear() {
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 }
 
-/* ---------------------------------- */
-/* Navbar background on scroll        */
-/* ---------------------------------- */
 function initNavbarScrollState() {
   const navbar = document.getElementById('navbar');
   if (!navbar) return;
@@ -175,6 +167,12 @@ function initContactForm() {
 
   if (!form || !statusEl) return;
 
+  const emailJsReady = typeof emailjs !== 'undefined' && EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY';
+
+  if (emailJsReady) {
+    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+  }
+
   const fields = {
     name: {
       el: form.querySelector('#name'),
@@ -255,9 +253,6 @@ function initContactForm() {
     });
   });
 
-  /* ---------------------------------- */
-  /* Send message                        */
-  /* ---------------------------------- */
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -282,10 +277,13 @@ function initContactForm() {
     statusEl.textContent = 'Sending message...';
 
     try {
+      if (!emailJsReady) {
+        throw new Error('EmailJS public key is not configured.');
+      }
 
       await emailjs.sendForm(
-        'service_zv9lavf',
-        'template_duy30dl',
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
         form
       );
 
@@ -308,7 +306,9 @@ function initContactForm() {
 
       statusEl.classList.add('is-error');
       statusEl.textContent =
-        'Sorry, something went wrong while sending your message. Please try again later.';
+        error.message === 'EmailJS public key is not configured.'
+          ? 'Email service is not configured yet. Please email me directly at jomerabansa5@gmail.com.'
+          : 'Sorry, something went wrong while sending your message. Please try again later.';
     }
   });
 }
