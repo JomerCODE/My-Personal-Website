@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jomer Abansa | Computer Programmer & Aspiring IT Professional</title>
+  <meta name="description" content="Personal portfolio of Jomer Abansa, a Computer Programming graduate interested in web development, software development, computer hardware, troubleshooting, and IT.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Jomer Abansa | Computer Programmer & Aspiring IT Professional">
+  <meta property="og:description" content="Personal portfolio of Jomer Abansa, a Computer Programming graduate interested in web development, software development, computer hardware, troubleshooting, and IT.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/profile.jpg">
+
+  <!-- Fonts: Space Grotesk (display) + Inter (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome (icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#home">Skip to main content</a>
+
+  <header class="navbar" id="navbar">
+    <div class="navbar__inner">
+      <a href="#home" class="brand" aria-label="Jomer Abansa, home">
+        <span class="brand__mark" aria-hidden="true">JD</span>
+        <span class="brand__name">Jomer<span class="brand__dot"></span>DEV</span>
+      </a>
+
+      <nav class="nav" id="primary-nav" aria-label="Primary">
+        <ul class="nav__list">
+          <li><a href="#home" class="nav__link active" data-nav>Home</a></li>
+          <li><a href="#about" class="nav__link" data-nav>About</a></li>
+          <li><a href="#skills" class="nav__link" data-nav>Skills</a></li>
+          <li><a href="#projects" class="nav__link" data-nav>Projects</a></li>
+          <li><a href="#contact" class="nav__link" data-nav>Contact</a></li>
+        </ul>
+      </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile">
+      <ul class="mobile-menu__list">
+        <li><a href="#home" data-nav>Home</a></li>
+        <li><a href="#about" data-nav>About</a></li>
+        <li><a href="#skills" data-nav>Skills</a></li>
+        <li><a href="#projects" data-nav>Projects</a></li>
+        <li><a href="#contact" data-nav>Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="hero" id="home" aria-label="Introduction">
+      <div class="hero__aurora" aria-hidden="true">
+        <span class="aurora aurora--one"></span>
+        <span class="aurora aurora--two"></span>
+        <span class="aurora aurora--grid"></span>
+        <span class="particle particle--1"></span>
+        <span class="particle particle--2"></span>
+        <span class="particle particle--3"></span>
+        <span class="particle particle--4"></span>
+        <span class="particle particle--5"></span>
+      </div>
+
+      <div class="container hero__grid">
+        <div class="hero__content reveal">
+          <p class="eyebrow">Computer Programming Graduate</p>
+          <h1 class="hero__title">
+            Jomer Abansa
+          </h1>
+          <p class="hero__subtitle">Computer Programming Graduate &amp; Aspiring IT Professional</p>
+          <p class="hero__desc">
+            Passionate about technology, web development, computer hardware, troubleshooting,
+            and building practical software solutions.
+          </p>
+
+          <div class="hero__actions">
+            <a href="#projects" class="btn btn--primary">
+              <span>View My Projects</span>
+              <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
+            </a>
+            <a href="assets/Jomer-Abansa-CV.pdf" class="btn btn--ghost" download>
+              <i class="fa-solid fa-download" aria-hidden="true"></i>
+              <span>Download CV</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero__visual reveal">
+          <div class="terminal">
+            <div class="terminal__bar">
+              <span class="dot dot--red"></span>
+              <span class="dot dot--yellow"></span>
+              <span class="dot dot--green"></span>
+              <span class="terminal__title">profile.js</span>
+            </div>
+            <div class="terminal__body">
+              <div class="terminal__photo">
+                <img src="assets/profile.jpg" alt="Portrait of Jomer Abansa" id="profile-img"
+                     onerror="this.style.display='none'; document.getElementById('profile-fallback').style.display='flex';">
+                <div class="terminal__photo-fallback" id="profile-fallback">
+                  <i class="fa-solid fa-user" aria-hidden="true"></i>
+                </div>
+              </div>
+              <pre class="terminal__code"><code><span class="tok-kw">const</span> <span class="tok-var">developer</span> = {
+  <span class="tok-prop">name</span>: <span class="tok-str">"Jomer Abansa"</span>,
+  <span class="tok-prop">role</span>: <span class="tok-str">"Aspiring IT Professional"</span>,
+  <span class="tok-prop">status</span>: <span class="tok-str">"Open to work"</span>,
+  <span class="tok-prop">learning</span>: <span class="tok-bool">true</span>
+};</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#about" class="scroll-cue" aria-label="Scroll to About section">
+        <span></span>
+      </a>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about" aria-label="About me">
+      <div class="container">
+        <div class="section__head reveal">
+          <h2 class="section__title">About Me</h2>
+          <p class="section__sub">A little about my background and how I got here.</p>
+        </div>
+
+        <div class="about__grid">
+          <div class="about__text reveal">
+            <p>
+              I am a Computer Programming graduate with hands-on experience in basic web development,
+              computer hardware, troubleshooting, software development, and database technologies.
+              I enjoy learning new technologies and building practical applications that solve
+              real-world problems.
+            </p>
+            <div class="about__meta">
+              <div class="about__meta-item">
+                <span class="about__meta-label">Name</span>
+                <span class="about__meta-value">Jomer Abansa</span>
+              </div>
+              <div class="about__meta-item">
+                <span class="about__meta-label">Education</span>
+                <span class="about__meta-value">Computer Programming Graduate</span>
+              </div>
+              <div class="about__meta-item">
+                <span class="about__meta-label">School</span>
+                <span class="about__meta-value">Imus Computer College</span>
+              </div>
+              <div class="about__meta-item">
+                <span class="about__meta-label">Graduation</span>
+                <span class="about__meta-value">2026</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about__cards reveal">
+            <div class="glass-card about__card">
+              <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+              <h3>Education</h3>
+              <p>Computer Programming graduate, Imus Computer College, 2026.</p>
+            </div>
+            <div class="glass-card about__card">
+              <i class="fa-solid fa-code" aria-hidden="true"></i>
+              <h3>Programming</h3>
+              <p>Building web pages and small applications from the ground up.</p>
+            </div>
+            <div class="glass-card about__card">
+              <i class="fa-solid fa-computer" aria-hidden="true"></i>
+              <h3>Hardware</h3>
+              <p>Comfortable assembling, disassembling, and maintaining PCs.</p>
+            </div>
+            <div class="glass-card about__card">
+              <i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>
+              <h3>Troubleshooting</h3>
+              <p>Diagnosing and resolving common hardware and software issues.</p>
+            </div>
+            <div class="glass-card about__card">
+              <i class="fa-solid fa-seedling" aria-hidden="true"></i>
+              <h3>Continuous Learning</h3>
+              <p>Always exploring new tools, languages, and technologies.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section class="section section--alt" id="skills" aria-label="Skills">
+      <div class="container">
+        <div class="section__head reveal">
+          <h2 class="section__title">Skills</h2>
+          <p class="section__sub">Tools and technologies I've worked with so far.</p>
+        </div>
+
+        <div class="skills">
+          <!-- Web Development -->
+          <div class="skills__category reveal">
+            <h3 class="skills__category-title"><i class="fa-solid fa-globe" aria-hidden="true"></i> Web Development</h3>
+            <div class="skills__grid">
+              <div class="skill-card">
+                <i class="fa-brands fa-html5" aria-hidden="true"></i>
+                <h4>HTML5</h4>
+                <p>Structuring accessible, semantic web pages.</p>
+                <span class="skill-level skill-level--intermediate">Intermediate</span>
+              </div>
+              <div class="skill-card">
+                <i class="fa-brands fa-css3-alt" aria-hidden="true"></i>
+                <h4>CSS3</h4>
+                <p>Styling layouts with Flexbox, Grid, and animation.</p>
+                <span class="skill-level skill-level--intermediate">Intermediate</span>
+              </div>
+              <div class="skill-card">
+                <i class="fa-brands fa-square-js" aria-hidden="true"></i>
+                <h4>JavaScript</h4>
+                <p>Adding interactivity and logic to web pages.</p>
+                <span class="skill-level skill-level--intermediate">Intermediate</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Programming / Software -->
+          <div class="skills__category reveal">
+            <h3 class="skills__category-title"><i class="fa-solid fa-laptop-code" aria-hidden="true"></i> Programming / Software</h3>
+            <div class="skills__grid">
+              <div class="skill-card">
+                <i class="fa-solid fa-vial-circle-check" aria-hidden="true"></i>
+                <h4>Visual Basic</h4>
+                <p>Building desktop applications, including a POS system.</p>
+                <span class="skill-level skill-level--intermediate">Intermediate</span>
+              </div>
+              <div class="skill-card">
+                <i class="fa-brands fa-square-js" aria-hidden="true"></i>
+                <h4>JavaScript</h4>
+                <p>Scripting logic for web-based interfaces and tools.</p>
+                <span class="skill-level skill-level--intermediate">Intermediate</span>
+              </div>
+              <div class="skill-card">
+                <i class="fa-solid fa-terminal" aria-hidden="true"></i>
+                <h4>Basic C/C++</h4>
+                <p>Fundamentals of structured and procedural programming.</p>
+                <span class="skill-level skill-level--beginner">Beginner</span>
+              </div>
+              <div class="skill-card">
+                <i class="fa-brands fa-node-js" aria-hidden="true"></i>
+                <h4>Node.js</h4>
+                <p>Exploring server-side JavaScript for small projects.</p>
+                <span class="skill-level skill-level--familiar">Familiar</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Database -->
+          <div class="skills__category reveal">
+            <h3 class="skills__category-title"><i class="fa-solid fa-database" aria-hidden="true"></i> Database</h3>
+            <div class="skills__grid">
+              <div class="skill-card">
+                <i class="fa-solid fa-database" aria-hidden="true"></i>
+                <h4>PostgreSQL</h4>
+                <p>Designing and querying relational databases.</p>
+                <span class="skill-level skill-level--familiar">Familiar</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- IT / Hardware -->
+          <div class="skills__category reveal">
+            <h3 class="skills__category-title"><i class="fa-solid fa-server" aria-hidden="true"></i> IT / Hardware</h3>
+            <div class="skills__grid">
+              <div class="skill-card">
+                <i class="fa-solid fa-computer" aria-hidden="true"></i>
+                <h4>Hardware Installation</h4>
+                <p>Installing internal components and peripherals.</p>
+                <span class="skill-level skill-level--intermediate">Intermediate</span>
+              </div>
+              <div class="skill-card">
+                <i class="fa-solid fa-toolbox" aria-hidden="true"></i>
+                <h4>Computer Assembly</h4>
+                <p>Building complete desktop systems from parts.</p>
+                <span class="skill-level skill-level--intermediate">Intermediate</span>
+              </div>
+              <div class="skill-card">
+                <i class="fa-solid fa-microchip" aria-hidden="true"></i>
+                <h4>Computer Disassembly</h4>
+                <p>Safely taking apart systems for repair or upgrades.</p>
+                <span class="skill-level skill-level--intermediate">Intermediate</span>
+              </div>
+              <div class="skill-card">
+                <i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i>
+                <h4>Troubleshooting</h4>
+                <p>Identifying and fixing common hardware and OS issues.</p>
+                <span class="skill-level skill-level--intermediate">Intermediate</span>
+              </div>
+              <div class="skill-card">
+                <i class="fa-solid fa-network-wired" aria-hidden="true"></i>
+                <h4>Networking</h4>
+                <p>Basic setup of LAN connections and network devices.</p>
+                <span class="skill-level skill-level--familiar">Familiar</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tools / Productivity -->
+          <div class="skills__category reveal">
+            <h3 class="skills__category-title"><i class="fa-solid fa-briefcase" aria-hidden="true"></i> Tools / Productivity</h3>
+            <div class="skills__grid">
+              <div class="skill-card">
+                <i class="fa-solid fa-file-word" aria-hidden="true"></i>
+                <h4>Microsoft Word</h4>
+                <p>Document creation and formatting.</p>
+                <span class="skill-level skill-level--intermediate">Intermediate</span>
+              </div>
+              <div class="skill-card">
+                <i class="fa-solid fa-file-excel" aria-hidden="true"></i>
+                <h4>Microsoft Excel</h4>
+                <p>Spreadsheets, formulas, and basic data organization.</p>
+                <span class="skill-level skill-level--intermediate">Intermediate</span>
+              </div>
+              <div class="skill-card">
+                <i class="fa-solid fa-file-powerpoint" aria-hidden="true"></i>
+                <h4>Microsoft PowerPoint</h4>
+                <p>Building clear, organized presentations.</p>
+                <span class="skill-level skill-level--intermediate">Intermediate</span>
+              </div>
+              <div class="skill-card">
+                <i class="fa-solid fa-cloud" aria-hidden="true"></i>
+                <h4>Microsoft 365</h4>
+                <p>Comfortable across the everyday Office suite.</p>
+                <span class="skill-level skill-level--intermediate">Intermediate</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="section" id="projects" aria-label="Projects">
+      <div class="container">
+        <div class="section__head reveal">
+          <h2 class="section__title">Projects</h2>
+          <p class="section__sub">A few things I've built and worked on.</p>
+        </div>
+
+        <div class="filters reveal" role="group" aria-label="Filter projects by category">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="web">Web</button>
+          <button class="filter-btn" data-filter="desktop">Desktop</button>
+          <button class="filter-btn" data-filter="hardware">Hardware</button>
+        </div>
+
+        <div class="projects__grid" id="projects-grid">
+
+          <!-- Project 01 -->
+          <article class="project-card reveal" data-category="desktop">
+            <div class="project-card__media">
+              <span class="project-card__number">01</span>
+              <img src="assets/project-1.jpg" alt="Screenshot of the POS System application"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="project-card__fallback"><i class="fa-solid fa-cash-register" aria-hidden="true"></i></div>
+            </div>
+            <div class="project-card__body">
+              <span class="project-card__category">Desktop Application</span>
+              <h3>POS System</h3>
+              <p>A point-of-sale desktop application designed to handle product transactions, inventory management, and receipt generation.</p>
+              <div class="project-card__tech">
+                <span>Visual Basic</span>
+              </div>
+              <div class="project-card__actions">
+                <span class="btn-mini btn-mini--disabled">Coming Soon</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 02 -->
+          <article class="project-card reveal" data-category="web">
+            <div class="project-card__media">
+              <span class="project-card__number">02</span>
+              <img src="assets/project-2.jpg" alt="Screenshot of the Calculator App"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="project-card__fallback"><i class="fa-solid fa-calculator" aria-hidden="true"></i></div>
+            </div>
+            <div class="project-card__body">
+              <span class="project-card__category">Web Application</span>
+              <h3>Calculator App</h3>
+              <p>A simple calculator application designed to perform common arithmetic operations through an easy-to-use interface.</p>
+              <div class="project-card__tech">
+                <span>HTML5</span><span>CSS3</span><span>JavaScript</span>
+              </div>
+              <div class="project-card__actions">
+                <span class="btn-mini btn-mini--disabled">Coming Soon</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 03 -->
+          <article class="project-card reveal" data-category="hardware">
+            <div class="project-card__media">
+              <span class="project-card__number">03</span>
+              <img src="assets/project-3.jpg" alt="Photo from a computer assembly and disassembly project"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="project-card__fallback"><i class="fa-solid fa-computer" aria-hidden="true"></i></div>
+            </div>
+            <div class="project-card__body">
+              <span class="project-card__category">IT / Hardware</span>
+              <h3>Computer Assembly &amp; Disassembly</h3>
+              <p>A hands-on computer hardware project focused on understanding PC components, proper assembly, disassembly, and basic hardware maintenance.</p>
+              <div class="project-card__tech">
+                <span>Computer Hardware</span>
+              </div>
+              <div class="project-card__actions">
+                <span class="btn-mini btn-mini--disabled">Coming Soon</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 04 -->
+          <article class="project-card reveal" data-category="web">
+            <div class="project-card__media">
+              <span class="project-card__number">04</span>
+              <img src="assets/project-4.jpg" alt="Screenshot of the Login Form interface"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="project-card__fallback"><i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i></div>
+            </div>
+            <div class="project-card__body">
+              <span class="project-card__category">Web Development</span>
+              <h3>Login Form</h3>
+              <p>A responsive login interface created to practice form design, user interface structure, and basic JavaScript interaction.</p>
+              <div class="project-card__tech">
+                <span>HTML5</span><span>CSS3</span><span>JavaScript</span>
+              </div>
+              <div class="project-card__actions">
+                <span class="btn-mini btn-mini--disabled">Coming Soon</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <p class="projects__empty" id="projects-empty" hidden>No projects in this category yet.</p>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section section--alt" id="contact" aria-label="Contact">
+      <div class="container">
+        <div class="section__head reveal">
+          <h2 class="section__title">Contact</h2>
+          <p class="section__sub">Feel free to reach out — I'm open to entry-level opportunities.</p>
+        </div>
+
+        <div class="contact__grid">
+          <div class="contact__cards reveal">
+            <a class="glass-card contact-card" href="mailto:your.email@example.com">
+              <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+              <div>
+                <h3>Email</h3>
+                <p>jomerabansa5@gmail.com</p>
+              </div>
+            </a>
+            <a class="glass-card contact-card" href="tel:09940410971">
+              <i class="fa-solid fa-phone" aria-hidden="true"></i>
+              <div>
+                <h3>Phone</h3>
+                <p>09940410971</p>
+              </div>
+            </a>
+            <a class="glass-card contact-card" href="https://www.linkedin.com/in/jomer-abansa-521282420/" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+              <div>
+                <h3>LinkedIn</h3>
+                <p>linkedin.com/in/JomerAbansa</p>
+              </div>
+            </a>
+            <a class="glass-card contact-card" href="https://profile.indeed.com/?hl=en_PH&co=PH&from=gnav-homepage" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-indeed" aria-hidden="true"></i>
+              <div>
+                <h3>Indeed</h3>
+                <p>ph.indeed.com</p>
+              </div>
+            </a>
+            <a class="glass-card contact-card" href="https://www.facebook.com/jomer.abansa.762181" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-facebook" aria-hidden="true"></i>
+              <div>
+                <h3>Facebook</h3>
+                <p>facebook.com/jomerabansa</p>
+              </div>
+            </a>
+            <a class="glass-card contact-card" href="https://github.com/JomerCODE" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-github" aria-hidden="true"></i>
+              <div>
+                <h3>GitHub</h3>
+                <p>github.com/yourusername</p>
+              </div>
+            </a>
+          </div>
+
+          <form class="contact-form glass-card reveal" id="contact-form" novalidate>
+            <h3>Send a message</h3>
+
+            <div class="form-field">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required minlength="2" autocomplete="name">
+              <span class="form-error" data-error-for="name"></span>
+            </div>
+
+            <div class="form-field">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required autocomplete="email">
+              <span class="form-error" data-error-for="email"></span>
+            </div>
+
+            <div class="form-field">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" required minlength="3">
+              <span class="form-error" data-error-for="subject"></span>
+            </div>
+
+            <div class="form-field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required minlength="10"></textarea>
+              <span class="form-error" data-error-for="message"></span>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--block">
+              <span>Send Message</span>
+              <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+            </button>
+
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>&copy; <span id="year"></span> Jomer Abansa. Built with HTML, CSS &amp; JavaScript.</p>
+      <a href="#home" class="footer__top">Back to top <i class="fa-solid fa-arrow-up" aria-hidden="true"></i></a>
+    </div>
+  </footer>
+
+  <script
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+
+<script>
+  emailjs.init({
+    publicKey: 'YOUR_PUBLIC_KEY'
+  });
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
