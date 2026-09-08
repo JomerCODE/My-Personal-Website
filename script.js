@@ -355,10 +355,6 @@ function initContactForm() {
     });
   });
 
-  /* ---------------------------------- */
-  /* Submit Contact Form                */
-  /* ---------------------------------- */
-
   form.addEventListener(
     'submit',
     async (e) => {
@@ -388,18 +384,6 @@ function initContactForm() {
         'Sending message...';
 
       try {
-        /*
-         * Send form through EmailJS.
-         *
-         * IMPORTANT:
-         * sendForm() uses:
-         * SERVICE ID
-         * TEMPLATE ID
-         * FORM
-         *
-         * The Public Key is already configured
-         * above using emailjs.init().
-         */
 
         await window.emailjs.sendForm(
           EMAILJS_SERVICE_ID,
