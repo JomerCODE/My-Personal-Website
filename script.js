@@ -285,10 +285,6 @@ function initContactForm() {
     }
   };
 
-  /* ---------------------------------- */
-  /* Show / Hide Field Errors            */
-  /* ---------------------------------- */
-
   const setFieldError = (key, errorMessage) => {
     const { el } = fields[key];
 
@@ -329,10 +325,6 @@ function initContactForm() {
 
     return isValid;
   };
-
-  /* ---------------------------------- */
-  /* Live Validation                    */
-  /* ---------------------------------- */
 
   Object.keys(fields).forEach((key) => {
     const { el } = fields[key];
